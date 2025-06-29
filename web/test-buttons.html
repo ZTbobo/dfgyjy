@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>按钮测试页面</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background: #f0f0f0;
+        }
+        .test-button {
+            background: #8b5cf6;
+            color: white;
+            padding: 16px 32px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            margin: 10px;
+            transition: all 0.3s ease;
+        }
+        .test-button:hover {
+            background: #7c3aed;
+            transform: translateY(-2px);
+        }
+        .result {
+            margin: 20px 0;
+            padding: 10px;
+            background: white;
+            border-radius: 8px;
+            border-left: 4px solid #8b5cf6;
+        }
+    </style>
+</head>
+<body>
+    <h1>按钮功能测试</h1>
+    
+    <div>
+        <button class="test-button" onclick="testFunction1()">测试按钮1 - onclick</button>
+        <button class="test-button" id="testBtn2">测试按钮2 - addEventListener</button>
+        <button class="test-button" onclick="scrollToSection('test')">测试scrollToSection</button>
+        <button class="test-button" onclick="changeSlide(1)">测试changeSlide</button>
+    </div>
+    
+    <div class="result" id="result">
+        点击结果将显示在这里...
+    </div>
+    
+    <div id="test" style="margin-top: 50px; padding: 20px; background: #e0e7ff; border-radius: 8px;">
+        <h2>测试区域</h2>
+        <p>这是scrollToSection的目标区域</p>
+    </div>
+    
+    <script src="components/navigation/nav.js"></script>
+    <script src="js/carousel.js"></script>
+    
+    <script>
+        function testFunction1() {
+            document.getElementById('result').innerHTML = '✅ 测试按钮1点击成功！onclick方法正常工作。';
+        }
+        
+        document.getElementById('testBtn2').addEventListener('click', function() {
+            document.getElementById('result').innerHTML = '✅ 测试按钮2点击成功！addEventListener方法正常工作。';
+        });
+        
+        // 测试全局函数是否可用
+        window.addEventListener('load', function() {
+            const result = document.getElementById('result');
+            let status = '页面加载完成。检查函数状态：<br>';
+            
+            if (typeof scrollToSection === 'function') {
+                status += '✅ scrollToSection函数可用<br>';
+            } else {
+                status += '❌ scrollToSection函数不可用<br>';
+            }
+            
+            if (typeof changeSlide === 'function') {
+                status += '✅ changeSlide函数可用<br>';
+            } else {
+                status += '❌ changeSlide函数不可用<br>';
+            }
+            
+            if (typeof window.scrollToSection === 'function') {
+                status += '✅ window.scrollToSection可用<br>';
+            } else {
+                status += '❌ window.scrollToSection不可用<br>';
+            }
+            
+            if (typeof window.changeSlide === 'function') {
+                status += '✅ window.changeSlide可用<br>';
+            } else {
+                status += '❌ window.changeSlide不可用<br>';
+            }
+            
+            result.innerHTML = status;
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,100 @@
+{
+  "performance": {
+    "optimization": {
+      "enabled": true,
+      "level": "high",
+      "features": {
+        "hardwareAcceleration": true,
+        "lazyLoading": true,
+        "imageOptimization": true,
+        "cssOptimization": true,
+        "jsOptimization": true,
+        "animationOptimization": true
+      }
+    },
+    "monitoring": {
+      "enabled": true,
+      "metrics": {
+        "fps": true,
+        "loadTime": true,
+        "renderTime": true,
+        "memoryUsage": true
+      },
+      "thresholds": {
+        "maxLoadTime": 3000,
+        "minFPS": 30,
+        "maxMemoryUsage": 100
+      }
+    },
+    "animations": {
+      "useHardwareAcceleration": true,
+      "preferTransform": true,
+      "avoidLayoutThrashing": true,
+      "batchDOMUpdates": true,
+      "useRequestAnimationFrame": true
+    },
+    "images": {
+      "lazyLoading": true,
+      "preloadCritical": true,
+      "optimizeRendering": true,
+      "useWebP": false
+    },
+    "css": {
+      "useWillChange": true,
+      "optimizeSelectors": true,
+      "minimizeRepaints": true,
+      "useContainment": true
+    },
+    "javascript": {
+      "usePassiveListeners": true,
+      "debounceScrollEvents": true,
+      "throttleResizeEvents": true,
+      "cacheDOM": true,
+      "useIntersectionObserver": true
+    },
+    "browser": {
+      "supportedFeatures": {
+        "intersectionObserver": true,
+        "requestAnimationFrame": true,
+        "performanceObserver": true,
+        "willChange": true,
+        "transform3d": true
+      },
+      "fallbacks": {
+        "disableAnimations": false,
+        "reduceMotion": true,
+        "simplifyEffects": true
+      }
+    }
+  },
+  "recommendations": {
+    "general": [
+      "使用硬件加速的CSS属性（transform3d, translateZ）",
+      "避免频繁的DOM操作和样式计算",
+      "使用will-change属性提示浏览器优化",
+      "实施图片懒加载减少初始加载时间",
+      "使用requestAnimationFrame优化动画"
+    ],
+    "css": [
+      "优先使用transform和opacity进行动画",
+      "避免触发layout和paint的CSS属性",
+      "使用contain属性限制重绘范围",
+      "合理使用will-change属性",
+      "减少复杂的CSS选择器"
+    ],
+    "javascript": [
+      "使用事件委托减少监听器数量",
+      "实施防抖和节流优化滚动事件",
+      "缓存DOM查询结果",
+      "使用IntersectionObserver替代scroll事件",
+      "批量处理DOM更新操作"
+    ],
+    "images": [
+      "为关键图片添加preload",
+      "使用适当的图片格式和尺寸",
+      "实施懒加载策略",
+      "添加loading='lazy'属性",
+      "考虑使用WebP格式"
+    ]
+  }
+}

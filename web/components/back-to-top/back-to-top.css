@@ -1,0 +1,126 @@
+/* 回到顶部按钮样式 */
+.back-to-top-btn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, #8e44ad, #6a4c93);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(142, 68, 173, 0.3);
+    transition: all 0.3s ease;
+    z-index: 9999;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px) scale(0.8);
+}
+
+/* 显示状态 */
+.back-to-top-btn.visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0) scale(1);
+}
+
+/* 悬停效果 */
+.back-to-top-btn:hover {
+    background: linear-gradient(135deg, #6a4c93, #5a3d7a);
+    box-shadow: 0 6px 20px rgba(142, 68, 173, 0.4);
+    transform: translateY(-2px) scale(1.05);
+}
+
+/* 点击效果 */
+.back-to-top-btn.clicked {
+    transform: translateY(0) scale(0.95);
+    box-shadow: 0 2px 10px rgba(142, 68, 173, 0.3);
+}
+
+/* 按钮内的SVG图标 */
+.back-to-top-btn svg {
+    transition: transform 0.2s ease;
+}
+
+.back-to-top-btn:hover svg {
+    transform: translateY(-1px);
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .back-to-top-btn {
+        bottom: 20px;
+        right: 20px;
+        width: 45px;
+        height: 45px;
+    }
+    
+    .back-to-top-btn svg {
+        width: 20px;
+        height: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .back-to-top-btn {
+        bottom: 15px;
+        right: 15px;
+        width: 40px;
+        height: 40px;
+    }
+    
+    .back-to-top-btn svg {
+        width: 18px;
+        height: 18px;
+    }
+}
+
+/* 深色模式适配 */
+@media (prefers-color-scheme: dark) {
+    .back-to-top-btn {
+        background: linear-gradient(135deg, #8e44ad, #6a4c93);
+        box-shadow: 0 4px 15px rgba(142, 68, 173, 0.3);
+    }
+    
+    .back-to-top-btn:hover {
+        background: linear-gradient(135deg, #6a4c93, #5a3d7a);
+        box-shadow: 0 6px 20px rgba(142, 68, 173, 0.4);
+    }
+}
+
+/* 动画关键帧 */
+@keyframes bounceIn {
+    0% {
+        opacity: 0;
+        transform: translateY(20px) scale(0.3);
+    }
+    50% {
+        transform: translateY(-5px) scale(1.05);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes bounceOut {
+    0% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(20px) scale(0.3);
+    }
+}
+
+/* 增强的显示/隐藏动画 */
+.back-to-top-btn.visible {
+    animation: bounceIn 0.4s ease-out;
+}
+
+.back-to-top-btn:not(.visible) {
+    animation: bounceOut 0.3s ease-in;
+}

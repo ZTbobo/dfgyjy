@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="西安顶峰国际教育中心 - 专业留学服务，0.5+2/3/4项目模式，直接对接海外名校">
+    <title>西安顶峰国际教育中心 - 专业留学服务</title>
+    
+    <!-- 预加载关键资源 -->
+    <link rel="preload" href="css/style.css" as="style">
+    <link rel="preload" href="css/performance-boost.css" as="style">
+    <link rel="preload" href="js/performance-optimized.js" as="script">
+    <link rel="preload" href="js/carousel.js" as="script">
+    
+    <!-- 样式文件 -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/performance-boost.css">
+    <link rel="stylesheet" href="components/navigation/nav.css">
+    <link rel="stylesheet" href="components/back-to-top/back-to-top.css">
+    
+    <!-- 性能优化的meta标签 -->
+    <meta name="theme-color" content="#8b5cf6">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+</head>
+<body>
+    <!-- 导航栏 -->
+    <div id="navigation-container"></div>
+
+    <!-- 轮播图区域 -->
+    <section class="hero-section">
+        <div class="carousel-container">
+            <div class="carousel-wrapper">
+                <div class="carousel-slide active">
+                    <img src="images/顶峰教育环境图1.jpg" alt="西安顶峰国际教育中心校园环境">
+                    <div class="slide-content">
+                        <h1>西安顶峰国际教育中心</h1>
+                <p>深度聚焦海外名校预科培训，一站式定制国际化教育解决方案</p>
+                <button class="cta-button" onclick="document.querySelector('#destinations').scrollIntoView({behavior: 'smooth', block: 'start'})">了解更多</button>
+                    </div>
+                </div>
+                <div class="carousel-slide">
+                    <img src="images/交流2.jpg" alt="0.5+2/3/4项目模式">
+                    <div class="slide-content">
+                        <h1>0.5+2/3/4项目模式</h1>
+                <p>5个月国内预科培训，明年春季即可出国入校</p>
+                <button class="cta-button" onclick="document.querySelector('#contact').scrollIntoView({behavior: 'smooth', block: 'start'})">立即咨询</button>
+                    </div>
+                </div>
+                <div class="carousel-slide">
+                    <img src="images/交流1.jpg" alt="直接对接海外名校">
+                    <div class="slide-content">
+                        <h1>直接对接海外名校</h1>
+                <p>无需中介费，费用包含餐饮住宿，性价比极高</p>
+                <button class="cta-button" onclick="document.querySelector('#contact').scrollIntoView({behavior: 'smooth', block: 'start'})">预约探校</button>
+                    </div>
+                </div>
+            </div>
+            <!-- 轮播指示器 -->
+            <div class="carousel-indicators">
+                <span class="indicator active" data-slide="0"></span>
+                <span class="indicator" data-slide="1"></span>
+                <span class="indicator" data-slide="2"></span>
+            </div>
+            <!-- 轮播控制按钮 -->
+            <button class="carousel-control prev" onclick="changeSlide(-1)">‹</button>
+            <button class="carousel-control next" onclick="changeSlide(1)">›</button>
+        </div>
+    </section>
+
+    <!-- 主要内容区域 -->
+    <main class="main-content">
+        <!-- 教育中心介绍 -->
+        <section id="introduction" class="corporate-culture-section">
+            <div class="container">
+                <div class="culture-content">
+                    <div class="culture-left">
+                        <h2>教育中心介绍</h2>
+                        <div class="culture-text">
+                            <p>西安顶峰国际教育中心成立于2015年，是一所专注于海外名校预科培训、国际升学规划、留学咨询等核心领域的专业教育机构。中心秉承"让每一位学子都能走向世界舞台"的教育使命，为广大学子提供全方位、一站式的国际化教育解决方案。</p>
+                            <p>经过多年的发展，中心已与新加坡管理学院、马来西亚国立师范大学、俄罗斯莫斯科国立大学、韩国延世大学等30余所海外知名院校建立了深度战略合作关系。我们联合开设国际预科课程，采用中外教结合的教学模式，确保学生在语言能力、学术水平和跨文化适应能力方面都能得到全面提升。</p>
+                            
+                            <p>面向未来，顶峰国际教育中心将继续深化国际合作，创新教学模式，致力于培养具有国际视野、跨文化交流能力和全球竞争力的新时代人才，为中国学子的国际化发展之路保驾护航。</p>
+                        </div>
+                    </div>
+                    <div class="culture-right">
+                        <div class="culture-images">
+                            <img id="cultureImage" src="images/顶峰教育环境图1.jpg" alt="教育环境" class="culture-image active">
+                            <img src="images/顶峰教育环境图2.jpg" alt="教育环境" class="culture-image">
+                            <img src="images/顶峰教育环境图3.jpg" alt="教育环境" class="culture-image">
+                            <img src="images/校区图片2.jpg" alt="校区环境" class="culture-image">
+                            <img src="images/校区图片3.jpg" alt="校区环境" class="culture-image">
+                            <img src="images/校区图片4.jpg" alt="校区环境" class="culture-image">
+                            <img src="images/校区图片5.jpg" alt="校区环境" class="culture-image">
+                            <div class="image-controls">
+                                <button class="image-btn prev-btn" onclick="console.log('Prev button clicked!'); console.log('changeCultureImage function:', typeof changeCultureImage); if(typeof changeCultureImage === 'function') { changeCultureImage(-1); } else { console.error('changeCultureImage function not found!'); }">‹</button>
+                                <button class="image-btn next-btn" onclick="console.log('Next button clicked!'); console.log('changeCultureImage function:', typeof changeCultureImage); if(typeof changeCultureImage === 'function') { changeCultureImage(1); } else { console.error('changeCultureImage function not found!'); }">›</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                
+
+        <!-- 服务介绍 -->
+        <section id="services" class="services-section">
+            <div class="container">
+                <h2 class="section-title">在顶峰 体验一站式留学服务</h2>
+                
+                <div class="services-grid">
+                    <!-- 左侧业务 -->
+                    <div class="services-column services-left">
+                        <div class="service-item">
+                            <h3>海外名校预科培训</h3>
+                            <p>深度聚焦海外名校预科培训，采用国际化教学模式，全面提升学生的学术水平、语言能力和跨文化适应能力，为进入世界顶尖大学奠定坚实基础。我们与30余所海外知名院校建立战略合作关系，确保学生能够顺利进入理想的海外名校。</p>
+                        </div>
+                        
+                        <div class="service-item">
+                            <h3>海外名校录取面试</h3>
+                            <p>一站式留学咨询服务，直接对接海外名校招生官，提供专业的面试培训和申请指导，大幅提升学生的录取成功率。我们拥有丰富的面试经验和成功案例，帮助学生在面试中脱颖而出。</p>
+                        </div>
+                    </div>
+                    
+                    <!-- 右侧业务 -->
+                    <div class="services-column services-right">
+                        <div class="service-item">
+                            <h3>国际升学职业发展规划</h3>
+                            <p>提供专业的升学规划和职业发展指导服务，根据学生的兴趣特长和职业目标，制定个性化的学习路径和发展方案，确保每位学生都能找到最适合的发展方向。我们的专业团队将为每位学生量身定制最优的留学方案。</p>
+                        </div>
+                        
+                        <div class="service-item">
+                            <h3>国际学生交流</h3>
+                            <p>组织学生实地体验世界名校，深度了解留学环境和学习氛围，通过文化交流活动培养学生的国际视野和跨文化交流能力。让学生在真实的国际环境中提前适应海外学习生活。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 项目优势 -->
+        <section id="about" class="advantages-section">
+            <div class="container">
+                <h2>真留学 上顶峰！</h2>
+                <div class="advantages-grid">
+                    <div class="advantage-card">
+                        <h3>直升海外名校</h3>
+                        <p>中心直接对接海外名校，无需中介费</p>
+                    </div>
+                    <div class="advantage-card">
+                        <h3>性价比高</h3>
+                        <p>费用包含餐饮、住宿、申请费，性价比极高</p>
+                    </div>
+                    <div class="advantage-card">
+                        <h3>时间短效率高</h3>
+                        <p>5个月460节雅思课+230节通识课+575节辅导课，快速出分</p>
+                    </div>
+                    <div class="advantage-card">
+                        <h3>封闭式管理</h3>
+                        <p>名师授课，班主任全程伴学，保证教学质量</p>
+                    </div>
+                    <div class="advantage-card">
+                        <h3>优质生活环境</h3>
+                        <p>四人间宿舍，自助餐无限量供应，独立卫生间，24小时热水</p>
+                    </div>
+                    <div class="advantage-card">
+                        <h3>国际化程度高</h3>
+                        <p>国际学生交流，外教老师陪练</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 招生信息 -->
+        <section class="process-section">
+            <div class="container">
+                <h2>出国流程</h2>
+                <p class="process-description">0.5年语言预科课程，全日制管理，吃住学一体</p>
+                <div class="timeline-container">
+                    <div class="timeline-item">
+                        <div class="timeline-marker">1</div>
+                        <div class="timeline-content">
+                            <h3>留学方案规划</h3>
+                            <p>根据学生个人兴趣、专业、家庭情况、就业方向定制个性化留学方案</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-marker">2</div>
+                        <div class="timeline-content">
+                            <h3>提前收获预录取offer</h3>
+                            <p>可以对接意向院校进行面试，通过即下发预录取offer</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-marker">3</div>
+                        <div class="timeline-content">
+                            <h3>0.5年语言预科课程</h3>
+                            <p>全日制管理，吃住学一体，小班授课</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-marker">4</div>
+                        <div class="timeline-content">
+                            <h3>语言考试</h3>
+                            <p>参加雅思、托福等语言考试，达到院校要求</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-marker">5</div>
+                        <div class="timeline-content">
+                            <h3>院校申请</h3>
+                            <p>文书材料准备、对接院校</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-marker">6</div>
+                        <div class="timeline-content">
+                            <h3>入学</h3>
+                            <p>顺利完成申请流程，成功注册入学，开启留学生活</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 热门留学目的地 -->
+        <section id="destinations" class="destinations-section performance-container">
+            <div class="container">
+                <h2>新、马热门留学院校推荐</h2>
+                <div class="destinations-grid">
+                    <div class="destination-card optimized-hover">
+                        <a href="singapore.html" style="text-decoration: none; color: inherit; display: block; width: 100%; height: 100%;">
+                            <img src="images/新加坡风景图1.jpg" alt="新加坡留学" loading="lazy" data-critical="true" class="lazy-image">
+                            <div class="destination-info">
+                                <h3>新加坡留学</h3>
+                                <p>亚洲教育枢纽，世界一流大学云集</p>
+                                <span class="learn-more">了解详情 →</span>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="destination-card optimized-hover">
+                        <a href="malaysia.html" style="text-decoration: none; color: inherit; display: block; width: 100%; height: 100%;">
+                            <img src="images/马来西亚风景图1.jpg" alt="马来西亚留学" loading="lazy" data-critical="true" class="lazy-image">
+                            <div class="destination-info">
+                                <h3>马来西亚留学</h3>
+                                <p>性价比高，英联邦教育体系</p>
+                                <span class="learn-more">了解详情 →</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 校区地址 -->
+        <section id="campus-address" class="campus-address-section">
+            <div class="container">
+                <h2>校区地址</h2>
+                <div class="address-content">
+                    <div class="address-image-container">
+                        <img src="images/地址.png" alt="校区地址" class="address-image">
+                        <div class="address-overlay">
+                            <h3>西安顶峰国际教育中心</h3>
+                            <p>草滩十路988号顶峰国际教育中心一楼招生办</p>
+                        </div>
+                    </div>
+                    <div class="contact-form-container">
+                        <h3>预约探校</h3>
+                        <form id="contactForm" class="contact-form" method="POST" action="#">
+                            <div class="form-group">
+                                <label for="name">姓名</label>
+                                <input type="text" id="name" name="name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">电话号码</label>
+                                <input type="tel" id="phone" name="phone" required>
+                            </div>
+                            <button type="submit" class="submit-btn">提交</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- 联系我们页脚 -->
+    <footer id="contact" class="contact-footer">
+        <div class="footer-container">
+            <div class="footer-main">
+                <!-- Logo和公司信息 -->
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <img src="images/logo1.png" alt="西安顶峰国际教育中心" class="logo-image">
+                        <button class="register-btn" onclick="window.open('register.html', '_blank')">规划方案</button>
+                    </div>
+                    <div class="brand-info">
+                        <h3 class="brand-name">西安顶峰国际教育中心</h3>
+                        <p class="brand-slogan">真留学 上顶峰！</p>
+                        <p class="brand-subtitle">Xi'an Summit International Education Center</p>
+                        <p class="brand-desc">一站式定制国际化教育解决方案</p>
+                    </div>
+                </div>
+                
+                <!-- 联系信息 -->
+                <div class="footer-contact">
+                    <h4>联系我们</h4>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <span class="contact-label">咨询热线</span>
+                            <span class="contact-value">刘老师：17782873015</span>
+                        </div>
+                        <div class="contact-item">
+                            <span class="contact-label">地址</span>
+                            <span class="contact-value">草滩十路988号顶峰国际教育中心一楼招生办</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 关注我们 -->
+                <div class="footer-social">
+                    <h4>关注我们</h4>
+                    <div class="social-links">
+                        <div class="wechat-icon-container">
+                            <div class="wechat-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M8.691 2.188C3.891 2.188 0 5.476 0 9.53c0 2.212 1.17 4.203 3.002 5.55a.59.59 0 0 1 .213.665l-.39 1.48c-.019.07-.048.141-.048.213 0 .163.13.295.29.295a.326.326 0 0 0 .167-.054l1.903-1.114a.864.864 0 0 1 .717-.098 10.16 10.16 0 0 0 2.837.403c.276 0 .543-.027.811-.05-.857-2.578.157-4.972 1.932-6.446 1.703-1.415 4.882-1.932 7.621-.55-.302-2.676-2.91-4.624-6.364-4.624zm-2.238 5.553c-.235 0-.427-.19-.427-.427 0-.235.19-.427.427-.427.234 0 .427.192.427.427 0 .236-.193.427-.427.427zm4.476 0c-.236 0-.427-.19-.427-.427 0-.235.19-.427.427-.427.235 0 .427.192.427.427 0 .236-.192.427-.427.427z"/>
+                                    <path d="M24 14.388c0-2.95-2.95-5.356-6.569-5.356-3.618 0-6.569 2.406-6.569 5.356 0 2.95 2.95 5.356 6.569 5.356.711 0 1.38-.118 2.006-.284a.694.694 0 0 1 .574.081l1.525.892c.026.016.055.024.082.024.118 0 .213-.094.213-.213 0-.054-.021-.106-.036-.158l-.308-1.182a.463.463 0 0 1 .169-.52C22.846 17.77 24 16.22 24 14.388zm-8.466-.427c-.19 0-.345-.154-.345-.345 0-.19.154-.345.345-.345.19 0 .345.154.345.345 0 .19-.154.345-.345.345zm3.085 0c-.19 0-.345-.154-.345-.345 0-.19.154-.345.345-.345.19 0 .345.154.345.345 0 .19-.154.345-.345.345z"/>
+                                </svg>
+                            </div>
+                            <div class="wechat-qr-popup">
+                                <img src="images/公众号二维码.png" alt="微信公众号二维码">
+                                <p>扫码关注获取更多资讯</p>
+                            </div>
+                        </div>
+                        <a href="https://www.douyin.com/user/MS4wLjABAAAAf5mwL2rVUQuS7QOTadfGT284jFVuPYYR_vjxj-G_Nd3RVSbAXGNisDxJbZCUDuFI?from_tab_name=main" target="_blank" class="douyin-link">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12.53.02C13.84 0 15.14.01 16.44 0c.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 版权信息 -->
+            <div class="footer-bottom">
+                <p>&copy; 2025 西安顶峰国际教育中心. 保留所有权利.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/tabs.js"></script>
+    <script src="js/performance-optimized.js"></script>
+    <script src="js/contact-form.js"></script>
+    <!-- 导航组件加载 -->
+    <script>
+        fetch('components/navigation/nav.html')
+            .then(response => response.text())
+            .then(html => {
+                document.getElementById('navigation-container').innerHTML = html;
+                // 导航HTML加载完成后，加载导航JavaScript
+                const navScript = document.createElement('script');
+                navScript.src = 'components/navigation/nav.js';
+                document.head.appendChild(navScript);
+            })
+            .catch(error => console.log('导航加载失败:', error));
+    </script>
+    
+    <!-- 功能测试和调试 -->
+    <script>
+        // 综合功能测试
+        window.addEventListener('load', () => {
+            console.log('=== 页面功能测试开始 ===');
+            
+            // 检查轮播图功能
+            console.log('轮播图实例:', window.carouselInstance);
+            console.log('changeSlide函数:', typeof window.changeSlide);
+            
+            // 检查教育中心图片功能
+            console.log('changeCultureImage函数:', typeof window.changeCultureImage);
+            
+            // 检查按钮元素
+            const imageButtons = document.querySelectorAll('.image-btn');
+            console.log('找到图片切换按钮数量:', imageButtons.length);
+            
+            // 检查轮播图按钮
+            const carouselButtons = document.querySelectorAll('.carousel-btn');
+            console.log('找到轮播图按钮数量:', carouselButtons.length);
+            
+            // 检查函数是否存在
+            console.log('scrollToSection函数:', typeof scrollToSection);
+            console.log('changeSlide函数:', typeof changeSlide);
+            console.log('window.scrollToSection:', typeof window.scrollToSection);
+            console.log('window.changeSlide:', typeof window.changeSlide);
+            
+            // 检查按钮元素
+            const ctaButtons = document.querySelectorAll('.cta-button');
+            const carouselControls = document.querySelectorAll('.carousel-control');
+            const indicators = document.querySelectorAll('.indicator');
+            
+            console.log('CTA按钮数量:', ctaButtons.length);
+            console.log('轮播控制按钮数量:', carouselControls.length);
+            console.log('指示器数量:', indicators.length);
+            
+            // 为按钮添加调试事件监听
+            ctaButtons.forEach((btn, index) => {
+                btn.addEventListener('click', (e) => {
+                    console.log(`CTA按钮${index + 1}被点击`, e);
+                });
+            });
+            
+            carouselControls.forEach((btn, index) => {
+                btn.addEventListener('click', (e) => {
+                    console.log(`轮播控制按钮${index + 1}被点击`, e);
+                });
+            });
+            
+            indicators.forEach((indicator, index) => {
+                indicator.addEventListener('click', (e) => {
+                    console.log(`指示器${index + 1}被点击`, e);
+                });
+            });
+            
+            console.log('=== 按钮功能调试结束 ===');
+             
+             // 测试轮播图自动播放
+             setTimeout(() => {
+                 if (window.carouselInstance) {
+                     console.log('检查轮播图自动播放状态:');
+                     console.log('- 当前幻灯片索引:', window.carouselInstance.currentSlide);
+                     console.log('- 自动播放定时器ID:', window.carouselInstance.autoPlayInterval);
+                     console.log('- 幻灯片总数:', window.carouselInstance.totalSlides);
+                 }
+             }, 6000); // 6秒后检查
+         });
+    </script>
+    
+    <!-- 性能监控和优化 -->
+    <script>
+        // 页面加载性能监控
+        window.addEventListener('DOMContentLoaded', () => {
+            const loadTime = performance.now();
+            console.log(`页面加载时间: ${loadTime.toFixed(2)}ms`);
+            
+            // 检查Core Web Vitals
+            if ('web-vital' in window) {
+                // 如果有web-vitals库，可以在这里添加监控
+            }
+        });
+        
+        // 图片懒加载优化（简化版）
+        document.addEventListener('DOMContentLoaded', () => {
+            const images = document.querySelectorAll('img');
+            
+            if ('IntersectionObserver' in window) {
+                const imageObserver = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            const img = entry.target;
+                            if (img.dataset.src) {
+                                img.src = img.dataset.src;
+                                img.classList.add('loaded');
+                                imageObserver.unobserve(img);
+                            }
+                        }
+                    });
+                });
+                
+                images.forEach(img => {
+                    if (img.dataset.src) {
+                        imageObserver.observe(img);
+                    }
+                });
+            }
+        });
+        
+        // 滚动性能优化
+        let ticking = false;
+        function updateScrollPosition() {
+            ticking = false;
+        }
+        
+        function requestTick() {
+            if (!ticking) {
+                requestAnimationFrame(updateScrollPosition);
+                ticking = true;
+            }
+        }
+        
+        window.addEventListener('scroll', requestTick, { passive: true });
+    </script>
+    
+    <!-- 导航组件 -->
+    <script src="components/navigation/nav.js"></script>
+    
+    <!-- 回到顶部按钮 -->
+    <script src="components/back-to-top/back-to-top.js"></script>
+    
+    <!-- 校区图片画廊 -->
+    <script src="js/campus-gallery.js"></script>
+    
+    <!-- 企业文化交互 -->
+    <script src="js/corporate-culture.js"></script>
+    
+    <!-- 联系表单处理 -->
+    <script src="js/contact-form.js"></script>
+    
+    <!-- 轮播图功能 -->
+    <script src="js/carousel.js"></script>
+    
+    <!-- 初始化导航 -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            initNavigation();
+        });
+    </script>
+</body>
+</html>

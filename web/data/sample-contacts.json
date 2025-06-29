@@ -1,0 +1,30 @@
+[
+  {
+    "name": "王五",
+    "phone": "13800138003",
+    "email": "wangwu@example.com",
+    "message": "想了解美国硕士留学的具体流程和费用",
+    "source": "官网咨询",
+    "status": "待跟进",
+    "assignedTo": "张老师",
+    "priority": "高",
+    "tags": ["美国留学", "硕士"],
+    "followUpDate": "2024-01-20",
+    "notes": "客户比较着急，希望尽快安排咨询",
+    "timestamp": "2024-01-15T09:15:00.000Z"
+  },
+  {
+    "name": "赵六",
+    "phone": "13800138004",
+    "email": "zhaoliu@example.com",
+    "message": "咨询英国本科申请条件",
+    "source": "微信推广",
+    "status": "已联系",
+    "assignedTo": "李老师",
+    "priority": "中",
+    "tags": ["英国留学", "本科"],
+    "followUpDate": "2024-01-25",
+    "notes": "已发送详细资料，等待客户反馈",
+    "timestamp": "2024-01-16T16:45:00.000Z"
+  }
+]

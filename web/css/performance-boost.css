@@ -1,0 +1,335 @@
+/* 性能优化CSS - 提高浏览帧率 */
+
+/* 全局性能优化 */
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    /* 启用硬件加速 */
+    transform: translateZ(0);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    /* 优化文本渲染 */
+    text-rendering: optimizeSpeed;
+}
+
+/* 减少重绘的优化动画 */
+.fade-in-element {
+    opacity: 0;
+    transform: translate3d(0, 20px, 0);
+    transition: opacity 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    will-change: opacity, transform;
+}
+
+.fade-in-element.animate-in {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+}
+
+/* 优化的悬停效果 - 只使用transform和opacity */
+.optimized-hover {
+    transition: transform 0.2s ease, opacity 0.2s ease;
+    will-change: transform;
+}
+
+.optimized-hover:hover {
+    transform: translate3d(0, -2px, 0) scale3d(1.02, 1.02, 1);
+}
+
+/* 高性能的脉冲动画 */
+.pulse-optimized {
+    animation: pulseOptimized 2s ease-in-out infinite;
+    will-change: transform;
+}
+
+@keyframes pulseOptimized {
+    0%, 100% {
+        transform: scale3d(1, 1, 1);
+    }
+    50% {
+        transform: scale3d(1.03, 1.03, 1);
+    }
+}
+
+/* 优化的浮动动画 */
+.float-optimized {
+    animation: floatOptimized 4s ease-in-out infinite;
+    will-change: transform;
+}
+
+@keyframes floatOptimized {
+    0%, 100% {
+        transform: translate3d(0, 0, 0);
+    }
+    50% {
+        transform: translate3d(0, -5px, 0);
+    }
+}
+
+/* 图片优化 */
+img {
+    /* 启用硬件加速 */
+    transform: translateZ(0);
+    /* 优化图片渲染 */
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+}
+
+.lazy-image {
+    opacity: 1;
+    transition: opacity 0.3s ease;
+}
+
+.lazy-image.loading {
+    opacity: 0.7;
+}
+
+.lazy-image.loaded {
+    opacity: 1;
+}
+
+.lazy-image.error {
+    opacity: 0.5;
+    background-color: #f5f5f5;
+    border: 1px dashed #ccc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 200px;
+}
+
+.lazy-image.error::after {
+    content: '图片加载失败';
+    color: #999;
+    font-size: 14px;
+}
+
+/* 容器优化 */
+.performance-container {
+    /* 创建新的层叠上下文 */
+    transform: translateZ(0);
+    /* 启用GPU加速 */
+    will-change: transform;
+    /* 优化重绘区域 */
+    contain: layout style paint;
+}
+
+/* 滚动优化 */
+.scroll-container {
+    /* 启用硬件加速滚动 */
+    -webkit-overflow-scrolling: touch;
+    /* 优化滚动性能 */
+    overscroll-behavior: contain;
+}
+
+/* 导航栏优化 */
+.navbar-optimized {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    transform: translate3d(0, 0, 0);
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    will-change: transform, background-color;
+    contain: layout style;
+}
+
+.navbar-optimized.hidden {
+    transform: translate3d(0, -100%, 0);
+}
+
+/* 卡片优化 */
+.card-optimized {
+    transform: translateZ(0);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    will-change: transform;
+    contain: layout style;
+}
+
+.card-optimized:hover {
+    transform: translate3d(0, -4px, 0);
+}
+
+/* 按钮优化 */
+.button-optimized {
+    transform: translateZ(0);
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+    will-change: transform;
+    contain: layout style;
+}
+
+.button-optimized:hover {
+    transform: translate3d(0, -1px, 0) scale3d(1.02, 1.02, 1);
+}
+
+.button-optimized:active {
+    transform: translate3d(0, 0, 0) scale3d(0.98, 0.98, 1);
+}
+
+/* 视差效果优化 */
+.parallax-element {
+    transform: translate3d(0, 0, 0);
+    will-change: transform;
+}
+
+/* 减少动画时的重绘 */
+.animating {
+    pointer-events: none;
+    will-change: transform, opacity;
+}
+
+.animating.finished {
+    pointer-events: auto;
+    will-change: auto;
+}
+
+/* 媒体查询优化 - 减少不必要的动画 */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+/* 高刷新率屏幕优化 */
+@media (min-resolution: 120dpi) {
+    .high-refresh-animation {
+        animation-duration: 0.8s;
+    }
+}
+
+/* 低性能设备优化 */
+@media (max-width: 768px) {
+    .mobile-performance {
+        will-change: auto;
+        transform: none;
+    }
+    
+    .mobile-performance:hover {
+        transform: none;
+    }
+    
+    /* 减少移动端动画 */
+    .complex-animation {
+        animation: none;
+    }
+}
+
+/* 打印样式优化 */
+@media print {
+    *,
+    *::before,
+    *::after {
+        animation: none !important;
+        transition: none !important;
+        transform: none !important;
+        will-change: auto !important;
+    }
+}
+
+/* 高对比度模式优化 */
+@media (prefers-contrast: high) {
+    .fade-in-element {
+        transition-duration: 0.1s;
+    }
+}
+
+/* 深色模式性能优化 */
+@media (prefers-color-scheme: dark) {
+    body {
+        color-scheme: dark;
+    }
+}
+
+/* 内容可见性优化 */
+.content-visibility-auto {
+    content-visibility: auto;
+    contain-intrinsic-size: 300px;
+}
+
+/* 字体显示优化 */
+@font-face {
+    font-family: 'OptimizedFont';
+    font-display: swap;
+    /* 其他字体属性 */
+}
+
+/* 关键帧优化 - 只使用transform和opacity */
+@keyframes optimizedSlideIn {
+    from {
+        opacity: 0;
+        transform: translate3d(-30px, 0, 0);
+    }
+    to {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+@keyframes optimizedFadeIn {
+    from {
+        opacity: 0;
+        transform: translate3d(0, 20px, 0);
+    }
+    to {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+@keyframes optimizedScale {
+    from {
+        opacity: 0;
+        transform: scale3d(0.9, 0.9, 1);
+    }
+    to {
+        opacity: 1;
+        transform: scale3d(1, 1, 1);
+    }
+}
+
+/* 性能监控辅助类 */
+.performance-monitor {
+    /* 用于性能监控的标记类 */
+}
+
+/* GPU层创建优化 */
+.gpu-layer {
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    perspective: 1000px;
+}
+
+/* 避免layout thrashing */
+.no-layout-change {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* 优化的loading状态 */
+.loading-optimized {
+    opacity: 0.7;
+    pointer-events: none;
+    will-change: opacity;
+    transition: opacity 0.2s ease;
+}
+
+.loading-optimized.loaded {
+    opacity: 1;
+    pointer-events: auto;
+    will-change: auto;
+}

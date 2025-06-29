@@ -1,0 +1,12 @@
+[
+  {
+    "id": 1,
+    "username": "dfjy666",
+    "password": "$2a$10$rDCdmq4Ncoel2MfEA8kE1OxPCvGz8w/5PlFQX04a3E9aPkdKtyIOC",
+    "role": "admin",
+    "email": "756225598@qq.com",
+    "createdAt": "2025-06-29T08:26:10.087Z",
+    "lastLogin": "2025-06-29T12:12:27.560Z",
+    "isActive": true
+  }
+]

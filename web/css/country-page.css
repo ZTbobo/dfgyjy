@@ -1,0 +1,1395 @@
+/* 国家页面专用样式 */
+
+/* 页面头部样式 */
+.page-header {
+    position: relative;
+    height: 400px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.header-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.header-bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.header-bg::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 2;
+}
+
+.header-content {
+    position: relative;
+    z-index: 3;
+    text-align: center;
+    color: white;
+    max-width: 800px;
+    padding: 0 20px;
+}
+
+.header-content h1 {
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+.header-content p {
+    font-size: 1.3rem;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+    opacity: 0.9;
+}
+
+/* 国家概况样式 */
+.country-overview {
+    padding: 80px 0;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+}
+
+.country-overview h2 {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 50px;
+    color: #2c3e50;
+}
+
+.overview-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 50px;
+    align-items: start;
+}
+
+.overview-text h3 {
+    font-size: 1.8rem;
+    margin-bottom: 30px;
+    color: #2c3e50;
+}
+
+.overview-text ul {
+    list-style: none;
+    padding: 0;
+}
+
+.overview-text li {
+    margin-bottom: 15px;
+    padding-left: 20px;
+    position: relative;
+    line-height: 1.6;
+}
+
+.overview-text li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: #28a745;
+    font-weight: bold;
+}
+
+.overview-text strong {
+    color: #2c3e50;
+}
+
+.overview-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.stat-item {
+    background: white;
+    padding: 30px 20px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    border: 2px solid #e9ecef;
+    transition: all 0.3s ease;
+}
+
+.stat-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    border-color: #007bff;
+}
+
+.stat-item h4 {
+    font-size: 2rem;
+    color: #007bff;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.stat-item p {
+    color: #666;
+    font-size: 0.9rem;
+    margin: 0;
+}
+
+/* 热门院校样式 */
+.popular-universities {
+    padding: 80px 0;
+    background: white;
+}
+
+.popular-universities h2 {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 50px;
+    color: #2c3e50;
+}
+
+/* 院校详细介绍样式 - 优化版 */
+.university-detail {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(248, 251, 255, 0.98) 100%);
+    margin-bottom: 60px;
+    padding: 40px;
+    border-radius: 30px;
+    box-shadow: 0 15px 50px rgba(44, 90, 160, 0.08), 0 5px 20px rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    position: relative;
+    overflow: hidden;
+    backdrop-filter: blur(15px);
+}
+
+/* 为不同学校添加独特的颜色主题 */
+.university-detail:nth-child(odd) {
+    background: linear-gradient(135deg, rgba(255, 248, 250, 0.95) 0%, rgba(252, 245, 248, 0.98) 100%);
+    border-left: 6px solid #e74c3c;
+}
+
+.university-detail:nth-child(even) {
+    background: linear-gradient(135deg, rgba(248, 255, 250, 0.95) 0%, rgba(245, 252, 248, 0.98) 100%);
+    border-left: 6px solid #27ae60;
+}
+
+.university-detail:nth-child(3n) {
+    background: linear-gradient(135deg, rgba(248, 250, 255, 0.95) 0%, rgba(245, 248, 252, 0.98) 100%);
+    border-left: 6px solid #3498db;
+}
+
+.university-detail:nth-child(4n) {
+    background: linear-gradient(135deg, rgba(255, 252, 248, 0.95) 0%, rgba(252, 249, 245, 0.98) 100%);
+    border-left: 6px solid #f39c12;
+}
+
+.university-detail::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, #6a4c93 0%, #8e44ad 50%, #9b59b6 100%);
+    border-radius: 30px 30px 0 0;
+    box-shadow: 0 2px 10px rgba(44, 90, 160, 0.3);
+}
+
+/* 为不同学校的顶部装饰条添加不同颜色 */
+.university-detail:nth-child(odd)::before {
+    background: linear-gradient(90deg, #e74c3c 0%, #c0392b 50%, #a93226 100%);
+}
+
+.university-detail:nth-child(even)::before {
+    background: linear-gradient(90deg, #27ae60 0%, #229954 50%, #1e8449 100%);
+}
+
+.university-detail:nth-child(3n)::before {
+    background: linear-gradient(90deg, #3498db 0%, #2980b9 50%, #21618c 100%);
+}
+
+.university-detail:nth-child(4n)::before {
+    background: linear-gradient(90deg, #f39c12 0%, #e67e22 50%, #d35400 100%);
+}
+
+/* 添加独特的装饰元素和图标 */
+.university-detail::after {
+    content: '🎓';
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 60px;
+    height: 60px;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.1) 70%);
+    border-radius: 50%;
+    opacity: 0.7;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* 为不同学校添加不同的图标 */
+.university-detail:nth-child(odd)::after {
+    content: '🏛️';
+    background: radial-gradient(circle, rgba(231, 76, 60, 0.2) 0%, rgba(231, 76, 60, 0.05) 70%);
+}
+
+.university-detail:nth-child(even)::after {
+    content: '🌟';
+    background: radial-gradient(circle, rgba(39, 174, 96, 0.2) 0%, rgba(39, 174, 96, 0.05) 70%);
+}
+
+.university-detail:nth-child(3n)::after {
+    content: '🎯';
+    background: radial-gradient(circle, rgba(52, 152, 219, 0.2) 0%, rgba(52, 152, 219, 0.05) 70%);
+}
+
+.university-detail:nth-child(4n)::after {
+    content: '⭐';
+    background: radial-gradient(circle, rgba(243, 156, 18, 0.2) 0%, rgba(243, 156, 18, 0.05) 70%);
+}
+
+.university-detail:hover::after {
+    transform: scale(1.2) rotate(10deg);
+    opacity: 1;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* 添加学校卡片的动画效果 */
+@keyframes cardFloat {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-5px); }
+}
+
+.university-detail:nth-child(odd) {
+    animation: cardFloat 6s ease-in-out infinite;
+    animation-delay: 0s;
+}
+
+.university-detail:nth-child(even) {
+    animation: cardFloat 6s ease-in-out infinite;
+    animation-delay: 1.5s;
+}
+
+.university-detail:nth-child(3n) {
+    animation: cardFloat 6s ease-in-out infinite;
+    animation-delay: 3s;
+}
+
+.university-detail:nth-child(4n) {
+    animation: cardFloat 6s ease-in-out infinite;
+    animation-delay: 4.5s;
+}
+
+.university-detail:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 25px 70px rgba(44, 90, 160, 0.12), 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+.university-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 35px;
+    padding: 30px;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(248, 251, 255, 0.95) 100%);
+    border-radius: 25px;
+    box-shadow: 0 10px 40px rgba(44, 90, 160, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    position: relative;
+    min-height: 200px;
+    flex-direction: row-reverse;
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+}
+
+.university-header:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 15px 50px rgba(44, 90, 160, 0.12);
+}
+
+.university-header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(44, 90, 160, 0.02) 0%, rgba(52, 152, 219, 0.03) 100%);
+    border-radius: 25px;
+    z-index: -1;
+}
+
+.university-header::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(90deg, #6a4c93, #8e44ad, #9b59b6);
+    border-radius: 2px;
+    box-shadow: 0 2px 8px rgba(44, 90, 160, 0.3);
+}
+
+.university-logo {
+    width: 400px;
+    height: 300px;
+    object-fit: cover;
+    margin-left: 40px;
+    margin-right: 0;
+    border-radius: 20px;
+    padding: 0;
+    background: white;
+    box-shadow: 0 20px 60px rgba(44, 90, 160, 0.15), 0 8px 25px rgba(0, 0, 0, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    position: relative;
+    overflow: hidden;
+    backdrop-filter: blur(10px);
+}
+
+.university-logo::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(106, 76, 147, 0.05) 0%, rgba(142, 68, 173, 0.1) 50%, rgba(155, 89, 182, 0.05) 100%);
+    opacity: 0;
+    transition: all 0.4s ease;
+    z-index: 1;
+}
+
+.university-logo::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.1) 50%, transparent 70%);
+    transform: rotate(45deg) translateX(-100%);
+    transition: transform 0.6s ease;
+    z-index: 2;
+}
+
+.university-logo:hover {
+    transform: scale(1.05) translateY(-8px) rotateY(5deg);
+    box-shadow: 0 30px 80px rgba(44, 90, 160, 0.25), 0 15px 35px rgba(0, 0, 0, 0.15);
+    border-color: rgba(142, 68, 173, 0.3);
+}
+
+.university-logo:hover::before {
+    opacity: 1;
+}
+
+.university-logo:hover::after {
+    transform: rotate(45deg) translateX(100%);
+}
+
+.university-title {
+    flex: 1;
+    padding-left: 20px;
+}
+
+.university-title h3 {
+    color: #6a4c93;
+    margin-bottom: 12px;
+    font-size: 2.2em;
+    font-weight: 800;
+    text-shadow: 0 3px 6px rgba(44, 90, 160, 0.15);
+    line-height: 1.2;
+    background: linear-gradient(135deg, #6a4c93 0%, #8e44ad 50%, #9b59b6 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    position: relative;
+}
+
+/* 为不同学校的标题添加不同颜色主题 */
+.university-detail:nth-child(odd) .university-title h3 {
+    background: linear-gradient(135deg, #e74c3c 0%, #c0392b 50%, #a93226 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.university-detail:nth-child(even) .university-title h3 {
+    background: linear-gradient(135deg, #27ae60 0%, #229954 50%, #1e8449 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.university-detail:nth-child(3n) .university-title h3 {
+    background: linear-gradient(135deg, #3498db 0%, #2980b9 50%, #21618c 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.university-detail:nth-child(4n) .university-title h3 {
+    background: linear-gradient(135deg, #f39c12 0%, #e67e22 50%, #d35400 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.university-title h3::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(90deg, #6a4c93, #8e44ad);
+    border-radius: 2px;
+    box-shadow: 0 2px 8px rgba(44, 90, 160, 0.3);
+}
+
+.university-type {
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 1.1em;
+    margin: 0;
+    padding: 10px 20px;
+    background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+    border-radius: 25px;
+    border: none;
+    display: inline-block;
+    box-shadow: 0 6px 20px rgba(231, 76, 60, 0.25), 0 2px 8px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+/* 为不同学校的类型标签添加不同颜色主题 */
+.university-detail:nth-child(odd) .university-type {
+    background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+    box-shadow: 0 6px 20px rgba(231, 76, 60, 0.25), 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.university-detail:nth-child(even) .university-type {
+    background: linear-gradient(135deg, #27ae60 0%, #229954 100%);
+    box-shadow: 0 6px 20px rgba(39, 174, 96, 0.25), 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.university-detail:nth-child(3n) .university-type {
+    background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+    box-shadow: 0 6px 20px rgba(52, 152, 219, 0.25), 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.university-detail:nth-child(4n) .university-type {
+    background: linear-gradient(135deg, #f39c12 0%, #e67e22 100%);
+    box-shadow: 0 6px 20px rgba(243, 156, 18, 0.25), 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.university-type::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s ease;
+}
+
+.university-type:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(231, 76, 60, 0.3), 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.university-type:hover::before {
+    left: 100%;
+}
+
+.university-sections {
+    display: grid;
+    gap: 30px;
+    margin-top: 10px;
+}
+
+.section-item {
+    background: linear-gradient(135deg, #f8fbff 0%, #ffffff 100%);
+    padding: 25px;
+    border-radius: 15px;
+    border-left: 5px solid #2c5aa0;
+    box-shadow: 0 4px 15px rgba(44, 90, 160, 0.08);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+/* 为不同学校的section-item添加不同颜色主题 */
+.university-detail:nth-child(odd) .section-item {
+    background: linear-gradient(135deg, #fff8f8 0%, #ffffff 100%);
+    border-left: 5px solid #e74c3c;
+    box-shadow: 0 4px 15px rgba(231, 76, 60, 0.08);
+}
+
+.university-detail:nth-child(even) .section-item {
+    background: linear-gradient(135deg, #f8fff8 0%, #ffffff 100%);
+    border-left: 5px solid #27ae60;
+    box-shadow: 0 4px 15px rgba(39, 174, 96, 0.08);
+}
+
+.university-detail:nth-child(3n) .section-item {
+    background: linear-gradient(135deg, #f8fbff 0%, #ffffff 100%);
+    border-left: 5px solid #3498db;
+    box-shadow: 0 4px 15px rgba(52, 152, 219, 0.08);
+}
+
+.university-detail:nth-child(4n) .section-item {
+    background: linear-gradient(135deg, #fffcf8 0%, #ffffff 100%);
+    border-left: 5px solid #f39c12;
+    box-shadow: 0 4px 15px rgba(243, 156, 18, 0.08);
+}
+
+.section-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, #6a4c93, #8e44ad);
+}
+
+/* 为不同学校的section-item顶部装饰条添加不同颜色 */
+.university-detail:nth-child(odd) .section-item::before {
+    background: linear-gradient(90deg, #e74c3c, #c0392b);
+}
+
+.university-detail:nth-child(even) .section-item::before {
+    background: linear-gradient(90deg, #27ae60, #229954);
+}
+
+.university-detail:nth-child(3n) .section-item::before {
+    background: linear-gradient(90deg, #3498db, #2980b9);
+}
+
+.university-detail:nth-child(4n) .section-item::before {
+    background: linear-gradient(90deg, #f39c12, #e67e22);
+}
+
+.section-item:hover {
+    transform: translateX(5px);
+    box-shadow: 0 8px 25px rgba(44, 90, 160, 0.15);
+}
+
+.section-item h4 {
+    color: #6a4c93;
+    margin-bottom: 18px;
+    font-size: 1.3em;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-shadow: 0 1px 3px rgba(44, 90, 160, 0.1);
+}
+
+/* 为不同学校的section-item标题添加不同颜色主题 */
+.university-detail:nth-child(odd) .section-item h4 {
+    color: #e74c3c;
+    text-shadow: 0 1px 3px rgba(231, 76, 60, 0.1);
+}
+
+.university-detail:nth-child(even) .section-item h4 {
+    color: #27ae60;
+    text-shadow: 0 1px 3px rgba(39, 174, 96, 0.1);
+}
+
+.university-detail:nth-child(3n) .section-item h4 {
+    color: #3498db;
+    text-shadow: 0 1px 3px rgba(52, 152, 219, 0.1);
+}
+
+.university-detail:nth-child(4n) .section-item h4 {
+    color: #f39c12;
+    text-shadow: 0 1px 3px rgba(243, 156, 18, 0.1);
+}
+
+.section-item p {
+    color: #666;
+    line-height: 1.7;
+    margin-bottom: 10px;
+}
+
+.section-item ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.section-item li {
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 8px;
+    padding-left: 15px;
+    position: relative;
+}
+
+.section-item li:before {
+    content: "▸";
+    color: #6a4c93;
+    position: absolute;
+    left: 0;
+    font-weight: bold;
+}
+
+.section-item strong {
+    color: #6a4c93;
+    font-weight: 600;
+}
+
+.fee-application-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+    margin-top: 20px;
+}
+
+.fee-info, .application-info {
+    background: linear-gradient(135deg, #ffffff 0%, #f9fcff 100%);
+    padding: 20px;
+    border-radius: 12px;
+    border: 1px solid #e3f2fd;
+    box-shadow: 0 3px 12px rgba(44, 90, 160, 0.06);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    position: relative;
+}
+
+.fee-info::before, .application-info::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #6a4c93, #8e44ad);
+    border-radius: 12px 12px 0 0;
+}
+
+.fee-info:hover, .application-info:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(44, 90, 160, 0.12);
+}
+
+.fee-info h5, .application-info h5 {
+    color: #6a4c93;
+    margin-bottom: 12px;
+    font-size: 1.1em;
+    font-weight: 700;
+    text-shadow: 0 1px 2px rgba(44, 90, 160, 0.1);
+}
+
+.fee-info p, .application-info p {
+    margin-bottom: 8px;
+    font-size: 0.95em;
+    line-height: 1.5;
+    color: #555;
+}
+
+/* 响应式设计 - 院校推荐部分 */
+@media (max-width: 768px) {
+    .university-detail {
+        padding: 25px 20px;
+        margin-bottom: 30px;
+    }
+    
+    .university-header {
+        flex-direction: column;
+        text-align: center;
+        padding: 20px;
+    }
+    
+    .university-logo {
+        width: 220px;
+        height: 170px;
+        margin-left: 0;
+        margin-right: 0;
+        margin-top: 20px;
+        order: 2;
+    }
+    
+    .university-title {
+        order: 1;
+    }
+    
+    .university-title h3 {
+        font-size: 1.5em;
+    }
+    
+    .university-type {
+        font-size: 1em;
+        margin-top: 10px;
+    }
+    
+    .fee-application-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .section-item {
+        padding: 20px;
+    }
+    
+    .section-item h4 {
+        font-size: 1.2em;
+    }
+}
+
+@media (max-width: 480px) {
+    .university-detail {
+        padding: 20px 15px;
+        border-radius: 15px;
+    }
+    
+    .university-header {
+        padding: 15px;
+    }
+    
+    .university-logo {
+        width: 180px;
+        height: 140px;
+        margin-left: 0;
+        margin-top: 15px;
+        order: 2;
+    }
+    
+    .university-title {
+        order: 1;
+    }
+    
+    .university-title h3 {
+        font-size: 1.3em;
+    }
+    
+    .section-item {
+        padding: 15px;
+    }
+    
+    .fee-info, .application-info {
+        padding: 15px;
+    }
+}
+
+/* 院校图片展示增强效果 */
+.university-logo-container {
+    position: relative;
+    display: inline-block;
+}
+
+.university-logo-container::after {
+    content: '🏫';
+    position: absolute;
+    bottom: -5px;
+    right: -5px;
+    background: linear-gradient(135deg, #6a4c93, #8e44ad);
+    color: white;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    box-shadow: 0 3px 10px rgba(44, 90, 160, 0.3);
+    transform: scale(0);
+    transition: transform 0.3s ease;
+}
+
+.university-header:hover .university-logo-container::after {
+    transform: scale(1);
+}
+
+/* 图片加载优化 */
+.university-logo {
+    background-image: linear-gradient(45deg, #f0f8ff 25%, transparent 25%), 
+                      linear-gradient(-45deg, #f0f8ff 25%, transparent 25%), 
+                      linear-gradient(45deg, transparent 75%, #f0f8ff 75%), 
+                      linear-gradient(-45deg, transparent 75%, #f0f8ff 75%);
+    background-size: 20px 20px;
+    background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
+}
+
+.university-logo[src] {
+    background-image: none;
+}
+
+/* 保留原有的卡片样式以兼容其他页面 */
+.universities-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 30px;
+    margin-top: 50px;
+}
+
+.university-card {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    border: 1px solid #e9ecef;
+}
+
+.university-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.university-card img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+}
+
+.university-info {
+    padding: 25px;
+}
+
+.university-info h3 {
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+    color: #2c3e50;
+}
+
+.ranking {
+    color: #8e44ad;
+    font-weight: bold;
+    margin-bottom: 15px;
+    font-size: 0.9rem;
+}
+
+.university-info p {
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.university-highlights {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.highlight {
+    background: linear-gradient(45deg, #007bff, #0056b3);
+    color: white;
+    padding: 5px 12px;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+/* 双联课程样式 */
+.dual-degree-program {
+    padding: 100px 0;
+    background: linear-gradient(135deg, #6a4c93 0%, #8e44ad 50%, #9b59b6 100%);
+    color: #fff;
+    position: relative;
+    overflow: hidden;
+}
+
+.dual-degree-program::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('../images/马来西亚风景图1.jpg');
+    background-size: cover;
+    background-position: center;
+    opacity: 0.15;
+    z-index: 0;
+}
+
+.dual-degree-program h2 {
+    font-size: 3rem;
+    text-align: center;
+    margin-bottom: 60px;
+    color: #fff;
+    position: relative;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    z-index: 1;
+}
+
+.dual-degree-program h2::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 4px;
+    background: #ffeb3b;
+    margin: 20px auto 0;
+    border-radius: 2px;
+}
+
+.dual-degree-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: start;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    position: relative;
+    z-index: 1;
+}
+
+.dual-degree-text {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    color: #333;
+    transform: translateY(-10px);
+    transition: transform 0.3s ease;
+}
+
+.dual-degree-text:hover {
+    transform: translateY(-20px);
+}
+
+.dual-degree-text h3 {
+    font-size: 2rem;
+    margin-bottom: 25px;
+    color: #6a4c93;
+    border-bottom: 2px solid #e0e0e0;
+    padding-bottom: 15px;
+}
+
+.dual-degree-text h4 {
+    font-size: 1.5rem;
+    margin: 35px 0 25px 0;
+    color: #6a4c93;
+    display: inline-block;
+    padding: 8px 15px;
+    background: #f3e5f5;
+    border-radius: 30px;
+}
+
+.program-modes {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    margin-top: 30px;
+}
+
+.mode-item {
+    background: white;
+    padding: 25px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    border-top: 5px solid #3949ab;
+}
+
+.mode-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}
+
+.mode-item h5 {
+    color: #8e44ad;
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+.mode-item p {
+    font-size: 1rem;
+    color: #555;
+    margin: 0;
+    line-height: 1.6;
+}
+
+.partner-universities {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    color: #333;
+    transform: translateY(-10px);
+    transition: transform 0.3s ease;
+}
+
+.partner-universities:hover {
+    transform: translateY(-20px);
+}
+
+.partner-universities h4 {
+    color: #6a4c93;
+    margin-bottom: 25px;
+    font-size: 1.5rem;
+    text-align: center;
+    border-bottom: 2px solid #e0e0e0;
+    padding-bottom: 15px;
+}
+
+.partner-universities ul {
+    list-style: none;
+    padding: 0;
+}
+
+.partner-universities li {
+    margin-bottom: 15px;
+    padding: 12px 15px 12px 45px;
+    position: relative;
+    color: #555;
+    background: #f5f5f5;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.partner-universities li:hover {
+    background: #f3e5f5;
+    transform: translateX(5px);
+}
+
+.partner-universities li::before {
+    content: '🏫';
+    position: absolute;
+    left: 15px;
+    font-size: 1.2rem;
+}
+
+/* 申请要求样式 */
+.application-requirements {
+    padding: 80px 0;
+    background: white;
+}
+
+.application-requirements h2 {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 50px;
+    color: #2c3e50;
+}
+
+.requirements-tabs {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.tab-buttons {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 40px;
+    border-bottom: 2px solid #e9ecef;
+}
+
+.tab-btn {
+    background: none;
+    border: none;
+    padding: 15px 30px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: #666;
+    border-bottom: 3px solid transparent;
+}
+
+.tab-btn.active {
+    color: #8e44ad;
+    border-bottom-color: #8e44ad;
+    font-weight: bold;
+}
+
+.tab-btn:hover {
+    color: #8e44ad;
+}
+
+.tab-content {
+    margin-top: 40px;
+}
+
+.tab-pane {
+    display: none;
+}
+
+.tab-pane.active {
+    display: block;
+}
+
+.tab-pane h3 {
+    font-size: 1.8rem;
+    margin-bottom: 30px;
+    color: #2c3e50;
+    text-align: center;
+}
+
+.requirements-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.requirement-item {
+    background: #f8f9fa;
+    padding: 30px;
+    border-radius: 15px;
+    border-left: 4px solid #8e44ad;
+}
+
+.requirement-item h4 {
+    color: #2c3e50;
+    margin-bottom: 20px;
+    font-size: 1.2rem;
+}
+
+.requirement-item ul {
+    list-style: none;
+    padding: 0;
+}
+
+.requirement-item li {
+    margin-bottom: 10px;
+    padding-left: 20px;
+    position: relative;
+    color: #666;
+}
+
+.requirement-item li::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    color: #8e44ad;
+    font-weight: bold;
+}
+
+/* 费用信息样式 */
+.cost-information {
+    padding: 80px 0;
+    background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%);
+}
+
+.cost-information h2 {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 50px;
+    color: #2c3e50;
+}
+
+.cost-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 40px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.cost-category {
+    background: white;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.cost-category h3 {
+    font-size: 1.8rem;
+    margin-bottom: 30px;
+    color: #2c3e50;
+    border-bottom: 2px solid #ff9800;
+    padding-bottom: 15px;
+}
+
+.cost-details p {
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+    color: #666;
+    text-align: left;
+}
+
+.cost-details strong {
+    color: #2c3e50;
+    font-weight: bold;
+}
+
+/* 咨询CTA样式 */
+.consultation-cta {
+    padding: 80px 0;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    text-align: center;
+}
+
+.cta-content {
+    max-width: 600px;
+    margin: 0 auto;
+    color: white;
+}
+
+.cta-content h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.cta-content p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    opacity: 0.9;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .header-content h1 {
+        font-size: 2.5rem;
+    }
+    
+    .header-content p {
+        font-size: 1.1rem;
+    }
+    
+    .overview-grid,
+    .dual-degree-content {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .dual-degree-program {
+        padding: 60px 0;
+    }
+    
+    .dual-degree-program h2 {
+        font-size: 2.2rem;
+        margin-bottom: 40px;
+    }
+    
+    .dual-degree-text,
+    .partner-universities {
+        padding: 25px;
+        margin-bottom: 20px;
+    }
+    
+    .dual-degree-text h3 {
+        font-size: 1.6rem;
+    }
+    
+    .dual-degree-text h4 {
+        font-size: 1.2rem;
+        margin: 25px 0 15px 0;
+    }
+    
+    .program-modes {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+    
+    .mode-item {
+        padding: 20px;
+    }
+    
+    .partner-universities h4 {
+        font-size: 1.3rem;
+    }
+    
+    .overview-stats {
+        grid-template-columns: 1fr;
+    }
+    
+    .universities-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .requirements-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .cost-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .tab-buttons {
+        flex-direction: column;
+    }
+    
+    .tab-btn {
+        border-bottom: none;
+        border-right: 3px solid transparent;
+    }
+    
+    .tab-btn.active {
+        border-right-color: #8e44ad;
+        border-bottom-color: transparent;
+    }
+    
+    .program-modes {
+        grid-template-columns: 1fr;
+    }
+    
+    /* 新增院校详细介绍的响应式样式 */
+    .university-header {
+        flex-direction: column;
+        text-align: center;
+        padding: 20px;
+    }
+    
+    .university-logo {
+        width: 280px;
+        height: 200px;
+        margin: 0 auto 20px auto;
+        align-self: center;
+    }
+    
+    .fee-application-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .university-detail {
+        padding: 20px;
+        margin-bottom: 30px;
+    }
+    
+    .section-item {
+        padding: 15px;
+    }
+    
+    .section-item h4 {
+        font-size: 1.1em;
+    }
+}
+
+@media (max-width: 480px) {
+    .page-header {
+        height: 300px;
+    }
+    
+    .header-content h1 {
+        font-size: 2rem;
+    }
+    
+    .country-overview,
+    .popular-universities,
+    .dual-degree-program,
+    .application-requirements,
+    .cost-information,
+    .consultation-cta {
+        padding: 40px 0;
+    }
+    
+    .country-overview h2,
+    .popular-universities h2,
+    .dual-degree-program h2,
+    .application-requirements h2,
+    .cost-information h2,
+    .cta-content h2 {
+        font-size: 2rem;
+    }
+}

@@ -1,0 +1,3 @@
+name,gender,phone,email,birthDate,idCard,education,major,graduationYear,school,applicationProject,targetCountry,targetMajor,languageScore,workExperience,familyContact,address
+张三,男,13800138001,zhangsan@example.com,1995-06-15,110101199506151234,本科,计算机科学与技术,2018,北京大学,硕士留学,美国,计算机科学,托福100分,3年软件开发经验,李女士 13900139001,北京市朝阳区
+李四,女,13800138002,lisi@example.com,1996-08-20,110101199608201234,本科,英语,2019,清华大学,本科留学,英国,国际商务,雅思7.0分,2年翻译工作经验,王先生 13900139002,上海市浦东新区

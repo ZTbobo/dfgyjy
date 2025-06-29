@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>系统初始化设置 - 西安顶峰国际教育中心</title>
+    <link rel="stylesheet" href="css/login.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .setup-container {
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        
+        .setup-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .setup-header h1 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+        
+        .setup-header p {
+            color: #666;
+            font-size: 14px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: #333;
+        }
+        
+        .form-group input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 14px;
+            transition: border-color 0.3s ease;
+            box-sizing: border-box;
+        }
+        
+        .form-group input:focus {
+            outline: none;
+            border-color: #007bff;
+            box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+        }
+        
+        .password-requirements {
+            font-size: 12px;
+            color: #666;
+            margin-top: 5px;
+        }
+        
+        .password-requirements ul {
+            margin: 5px 0;
+            padding-left: 20px;
+        }
+        
+        .password-requirements li {
+            margin: 2px 0;
+        }
+        
+        .password-strength {
+            margin-top: 8px;
+        }
+        
+        .strength-bar {
+            height: 4px;
+            background: #e0e0e0;
+            border-radius: 2px;
+            overflow: hidden;
+        }
+        
+        .strength-fill {
+            height: 100%;
+            width: 0;
+            transition: all 0.3s ease;
+        }
+        
+        .strength-weak { background: #dc3545; }
+        .strength-medium { background: #ffc107; }
+        .strength-strong { background: #28a745; }
+        
+        .strength-text {
+            font-size: 12px;
+            margin-top: 4px;
+        }
+        
+        .setup-actions {
+            margin-top: 30px;
+        }
+        
+        .btn-setup {
+            width: 100%;
+            padding: 12px;
+            background: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+        
+        .btn-setup:hover {
+            background: #0056b3;
+        }
+        
+        .btn-setup:disabled {
+            background: #6c757d;
+            cursor: not-allowed;
+        }
+        
+        .security-tips {
+            background: #f8f9fa;
+            border: 1px solid #e9ecef;
+            border-radius: 4px;
+            padding: 15px;
+            margin-top: 20px;
+        }
+        
+        .security-tips h4 {
+            color: #495057;
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+        
+        .security-tips ul {
+            margin: 0;
+            padding-left: 20px;
+            font-size: 12px;
+            color: #6c757d;
+        }
+        
+        .security-tips li {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <div class="login-box setup-container">
+            <div class="setup-header">
+                <h1><i class="fas fa-cog"></i> 系统初始化设置</h1>
+                <p>欢迎使用西安顶峰国际教育中心管理系统！<br>请设置您的管理员账号信息。</p>
+            </div>
+            
+            <form id="setupForm">
+                <div class="form-group">
+                    <label for="username">
+                        <i class="fas fa-user"></i> 管理员用户名
+                    </label>
+                    <input type="text" id="username" name="username" required 
+                           placeholder="请输入管理员用户名" 
+                           pattern="[a-zA-Z0-9_]{3,20}" 
+                           title="用户名只能包含字母、数字和下划线，长度3-20个字符">
+                    <div class="password-requirements">
+                        用户名要求：3-20个字符，只能包含字母、数字和下划线
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">
+                        <i class="fas fa-envelope"></i> 邮箱地址
+                    </label>
+                    <input type="email" id="email" name="email" required 
+                           placeholder="请输入邮箱地址">
+                </div>
+                
+                <div class="form-group">
+                    <label for="password">
+                        <i class="fas fa-lock"></i> 密码
+                    </label>
+                    <div class="password-input-container">
+                        <input type="password" id="password" name="password" required 
+                               placeholder="请输入密码">
+                        <button type="button" class="password-toggle" onclick="togglePassword('password')">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                    </div>
+                    <div class="password-requirements">
+                        <strong>密码要求：</strong>
+                        <ul>
+                            <li>至少8个字符</li>
+                            <li>包含大写字母</li>
+                            <li>包含小写字母</li>
+                            <li>包含数字</li>
+                            <li>包含特殊字符 (!@#$%^&*)</li>
+                        </ul>
+                    </div>
+                    <div class="password-strength">
+                        <div class="strength-bar">
+                            <div class="strength-fill" id="strengthFill"></div>
+                        </div>
+                        <div class="strength-text" id="strengthText">密码强度：未设置</div>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="confirmPassword">
+                        <i class="fas fa-lock"></i> 确认密码
+                    </label>
+                    <div class="password-input-container">
+                        <input type="password" id="confirmPassword" name="confirmPassword" required 
+                               placeholder="请再次输入密码">
+                        <button type="button" class="password-toggle" onclick="togglePassword('confirmPassword')">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="setup-actions">
+                    <button type="submit" class="btn-setup" id="setupBtn">
+                        <i class="fas fa-check"></i> 完成设置
+                    </button>
+                </div>
+                
+                <div class="security-tips">
+                    <h4><i class="fas fa-shield-alt"></i> 安全提示</h4>
+                    <ul>
+                        <li>请使用强密码保护您的账号安全</li>
+                        <li>建议定期更换密码</li>
+                        <li>不要与他人分享您的登录信息</li>
+                        <li>设置完成后，请妥善保管您的登录凭据</li>
+                    </ul>
+                </div>
+            </form>
+            
+            <div class="message" id="message"></div>
+        </div>
+    </div>
+    
+    <script src="js/setup.js"></script>
+</body>
+</html>

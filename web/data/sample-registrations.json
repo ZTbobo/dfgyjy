@@ -1,0 +1,42 @@
+[
+  {
+    "name": "张三",
+    "gender": "男",
+    "phone": "13800138001",
+    "email": "zhangsan@example.com",
+    "birthDate": "1995-06-15",
+    "idCard": "110101199506151234",
+    "education": "本科",
+    "major": "计算机科学与技术",
+    "graduationYear": "2018",
+    "school": "北京大学",
+    "applicationProject": "硕士留学",
+    "targetCountry": "美国",
+    "targetMajor": "计算机科学",
+    "languageScore": "托福100分",
+    "workExperience": "3年软件开发经验",
+    "familyContact": "李女士 13900139001",
+    "address": "北京市朝阳区",
+    "timestamp": "2024-01-15T10:30:00.000Z"
+  },
+  {
+    "name": "李四",
+    "gender": "女",
+    "phone": "13800138002",
+    "email": "lisi@example.com",
+    "birthDate": "1996-08-20",
+    "idCard": "110101199608201234",
+    "education": "本科",
+    "major": "英语",
+    "graduationYear": "2019",
+    "school": "清华大学",
+    "applicationProject": "本科留学",
+    "targetCountry": "英国",
+    "targetMajor": "国际商务",
+    "languageScore": "雅思7.0分",
+    "workExperience": "2年翻译工作经验",
+    "familyContact": "王先生 13900139002",
+    "address": "上海市浦东新区",
+    "timestamp": "2024-01-16T14:20:00.000Z"
+  }
+]

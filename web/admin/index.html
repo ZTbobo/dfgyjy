@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>顶峰教育管理系统</title>
+    <link rel="stylesheet" href="css/admin.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="admin-layout">
+        <!-- 侧边栏 -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">
+                    <i class="fas fa-graduation-cap"></i>
+                    <span>顶峰教育</span>
+                </div>
+            </div>
+            <nav class="sidebar-nav">
+                <ul>
+                    <li class="nav-item active" data-page="registrations">
+                        <a href="#">
+                            <i class="fas fa-user-graduate"></i>
+                            <span>报名管理</span>
+                        </a>
+                    </li>
+                    <li class="nav-item" data-page="contacts">
+                        <a href="#">
+                            <i class="fas fa-address-book"></i>
+                            <span>联系信息</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-item" data-page="settings">
+                        <a href="#">
+                            <i class="fas fa-cog"></i>
+                            <span>系统设置</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- 主内容区 -->
+        <main class="main-content">
+            <!-- 顶部导航 -->
+            <header class="top-header">
+                <div class="header-left">
+                    <button class="sidebar-toggle">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    <h1 class="page-title">报名管理</h1>
+                </div>
+                <div class="header-right">
+                    <div class="search-box">
+                        <i class="fas fa-search"></i>
+                        <input type="text" placeholder="搜索..." id="globalSearch">
+                    </div>
+                    <div class="user-menu">
+                        <div class="user-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <span>管理员</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                </div>
+            </header>
+
+            <!-- 页面内容 -->
+            <div class="page-content">
+                <!-- 报名管理页面 -->
+                <div id="registrations-page" class="page active">
+                    <div class="page-header">
+                        <h2>报名管理</h2>
+                        <div class="page-actions">
+                            <button class="btn btn-success" id="importData">
+                                <i class="fas fa-upload"></i>
+                                导入数据
+                            </button>
+                            <button class="btn btn-primary" id="exportData">
+                                <i class="fas fa-download"></i>
+                                导出数据
+                            </button>
+                            <button class="btn btn-danger" id="batchDelete">
+                                <i class="fas fa-trash-alt"></i>
+                                批量删除
+                            </button>
+                            <button class="btn btn-secondary" id="refreshData">
+                                <i class="fas fa-sync-alt"></i>
+                                刷新
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="filters">
+                        <div class="filter-group">
+                            <label>搜索:</label>
+                            <input type="text" id="searchInput" placeholder="姓名、电话、邮箱...">
+                        </div>
+                        <div class="filter-group">
+                            <label>项目:</label>
+                            <select id="projectFilter">
+                                <option value="">全部项目</option>
+                                <option value="俄罗斯留学">俄罗斯留学</option>
+                                <option value="韩国留学">韩国留学</option>
+                                <option value="新加坡留学">新加坡留学</option>
+                                <option value="马来西亚留学">马来西亚留学</option>
+                            </select>
+                        </div>
+                        <div class="filter-group">
+                            <label>时间范围:</label>
+                            <input type="date" id="startDate">
+                            <span>至</span>
+                            <input type="date" id="endDate">
+                        </div>
+                    </div>
+
+                    <div class="table-container">
+                        <table id="registrationsTable">
+                            <thead>
+                                <tr>
+                                    <th><input type="checkbox" id="selectAll"></th>
+                                    <th>ID</th>
+                                    <th>提交时间</th>
+                                    <th>姓名</th>
+                                    <th>性别</th>
+                                    <th>电话</th>
+                                    <th>邮箱</th>
+                                    <th>报名项目</th>
+                                    <th>就读学校</th>
+                                    <th>操作</th>
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+                    </div>
+
+                    <div class="pagination">
+                        <button class="btn btn-sm" id="prevPage">上一页</button>
+                        <span id="pageInfo">第 1 页，共 1 页</span>
+                        <button class="btn btn-sm" id="nextPage">下一页</button>
+                    </div>
+                </div>
+
+                <!-- 联系信息页面 -->
+                <div id="contacts-page" class="page">
+                    <div class="page-header">
+                        <h2>联系信息管理</h2>
+                        <div class="page-actions">
+                            <button class="btn btn-success" id="importContacts">
+                                <i class="fas fa-upload"></i>
+                                导入联系信息
+                            </button>
+                            <button class="btn btn-primary" id="exportContacts">
+                                <i class="fas fa-download"></i>
+                                导出联系信息
+                            </button>
+                            <button class="btn btn-danger" id="batchDeleteContacts">
+                                <i class="fas fa-trash-alt"></i>
+                                批量删除
+                            </button>
+                            <button class="btn btn-secondary" id="refreshContacts">
+                                <i class="fas fa-sync-alt"></i>
+                                刷新
+                            </button>
+                        </div>
+                    </div>
+
+
+
+                    <div class="filters">
+                        <div class="filter-group">
+                            <label>搜索:</label>
+                            <input type="text" id="contactSearchInput" placeholder="姓名、电话...">
+                        </div>
+                        <div class="filter-group">
+                            <label>类型:</label>
+                            <select id="contactTypeFilter">
+                                <option value="">全部类型</option>
+                                <option value="contact">联系咨询</option>
+                                <option value="callback">回电申请</option>
+                            </select>
+                        </div>
+                        <div class="filter-group">
+                            <label>时间范围:</label>
+                            <input type="date" id="contactStartDate">
+                            <span>至</span>
+                            <input type="date" id="contactEndDate">
+                        </div>
+                    </div>
+
+                    <div class="table-container">
+                        <table id="contactsTable">
+                            <thead>
+                                <tr>
+                                    <th><input type="checkbox" id="selectAllContacts"></th>
+                                    <th>ID</th>
+                                    <th>提交时间</th>
+                                    <th>姓名</th>
+                                    <th>电话</th>
+                                    <th>类型</th>
+                                    <th>操作</th>
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+                    </div>
+
+                    <div class="pagination">
+                        <button class="btn btn-sm" id="prevContactPage">上一页</button>
+                        <span id="contactPageInfo">第 1 页，共 1 页</span>
+                        <button class="btn btn-sm" id="nextContactPage">下一页</button>
+                    </div>
+                </div>
+
+
+
+                <!-- 系统设置页面 -->
+                <div id="settings-page" class="page">
+                    <h2>系统设置</h2>
+                    <div class="settings-content">
+                        <div class="setting-section">
+                            <h3>数据管理</h3>
+                            <div class="setting-item">
+                                <label>自动备份</label>
+                                <input type="checkbox" id="autoBackup" checked>
+                            </div>
+                            <div class="setting-item">
+                                <label>数据保留天数</label>
+                                <input type="number" id="retentionDays" value="365">
+                            </div>
+                        </div>
+                        <div class="setting-section">
+                            <h3>通知设置</h3>
+                            <div class="setting-item">
+                                <label>新报名通知</label>
+                                <input type="checkbox" id="newRegistrationNotify" checked>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- 详情模态框 -->
+    <div id="detailModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>报名详情</h3>
+                <button class="close-btn" id="closeModal">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body" id="detailContent">
+                <!-- 详情内容将在这里动态生成 -->
+            </div>
+        </div>
+    </div>
+
+    <!-- 数据导入模态框 -->
+    <div id="importModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>数据导入</h3>
+                <button class="close-btn" id="closeImportModal">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="import-section">
+                    <h4>选择导入文件</h4>
+                    <p class="import-note">支持 JSON 和 CSV 格式文件</p>
+                    <div class="file-upload-area">
+                        <input type="file" id="importFileInput" accept=".json,.csv" style="display: none;">
+                        <div class="upload-placeholder" id="uploadPlaceholder">
+                            <i class="fas fa-cloud-upload-alt"></i>
+                            <p>点击选择文件或拖拽文件到此处</p>
+                            <small>支持 .json 和 .csv 格式</small>
+                        </div>
+                        <div class="file-info" id="fileInfo" style="display: none;">
+                            <i class="fas fa-file"></i>
+                            <span id="fileName"></span>
+                            <button type="button" id="removeFile">
+                                <i class="fas fa-times"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="import-options">
+                    <h4>导入选项</h4>
+                    <label>
+                        <input type="checkbox" id="replaceExisting" checked>
+                        替换现有数据（取消勾选则追加到现有数据）
+                    </label>
+                </div>
+                <div class="import-preview" id="importPreview" style="display: none;">
+                    <h4>数据预览</h4>
+                    <div class="preview-content" id="previewContent"></div>
+                </div>
+                <div class="modal-actions">
+                    <button class="btn btn-secondary" id="cancelImport">取消</button>
+                    <button class="btn btn-primary" id="confirmImport" disabled>导入数据</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 加载Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="js/auth-new.js"></script>
+</body>
+</html>

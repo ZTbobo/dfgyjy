@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>学生报名 - 西安顶峰国际教育中心</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .register-container {
+            max-width: 900px;
+            margin: 50px auto;
+            padding: 40px;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(20px);
+        }
+        
+        .register-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 700;
+        }
+        
+        .form-section {
+            margin-bottom: 30px;
+            padding: 25px;
+            border: 2px solid #e5e7eb;
+            border-radius: 15px;
+            background: #f9fafb;
+        }
+        
+        .section-title {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: #1f2937;
+            margin-bottom: 20px;
+            text-align: center;
+            background: #374151;
+            color: white;
+            padding: 10px;
+            border-radius: 8px;
+        }
+        
+        .form-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .form-group label {
+            font-weight: 600;
+            color: #374151;
+            margin-bottom: 8px;
+            font-size: 0.95rem;
+        }
+        
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            padding: 12px 15px;
+            border: 2px solid #d1d5db;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            background: white;
+        }
+        
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #3b82f6;
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+        }
+        
+        .checkbox-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 10px;
+        }
+        
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .checkbox-item input[type="checkbox"] {
+            width: 18px;
+            height: 18px;
+        }
+        
+        .submit-btn {
+            width: 100%;
+            padding: 18px;
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 30px;
+        }
+        
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(59, 130, 246, 0.3);
+        }
+        
+        .back-btn {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            padding: 12px 24px;
+            background: #6b7280;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .back-btn:hover {
+            background: #4b5563;
+            transform: translateY(-2px);
+        }
+        
+        body {
+            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 50%, #e2e8f0 100%);
+            min-height: 100vh;
+            padding: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <a href="index.html" class="back-btn">← 返回首页</a>
+    
+    <div class="register-container">
+        <h1 class="register-title">个人信息</h1>
+        
+        <form id="registerForm" action="/submit-registration" method="POST">
+            <!-- 报名项目 -->
+            <div class="form-section">
+                <div class="section-title">报名项目</div>
+                <div class="checkbox-group">
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="singapore" name="projects" value="新加坡">
+                        <label for="singapore">新加坡</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="malaysia" name="projects" value="马来西亚">
+                        <label for="malaysia">马来西亚</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="korea" name="projects" value="韩国">
+                        <label for="korea">韩国</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="russia" name="projects" value="俄罗斯">
+                        <label for="russia">俄罗斯</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="program054" name="projects" value="0.5+2/3/4各校">
+                        <label for="program054">0.5+2/3/4各校</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="other" name="projects" value="其他">
+                        <label for="other">其他</label>
+                        <input type="text" name="other_project" placeholder="请填写" style="margin-left: 10px; width: 120px;">
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 基本信息 -->
+            <div class="form-section">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="name">姓名</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="gender">性别</label>
+                        <select id="gender" name="gender" required>
+                            <option value="">请选择</option>
+                            <option value="男">男</option>
+                            <option value="女">女</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="ethnicity">民族</label>
+                        <input type="text" id="ethnicity" name="ethnicity">
+                    </div>
+                    <div class="form-group">
+                        <label for="id_photo">1寸免冠证照</label>
+                        <input type="file" id="id_photo" name="id_photo" accept="image/*">
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 联系信息 -->
+            <div class="form-section">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="province">户籍所在地 - 省</label>
+                        <input type="text" id="province" name="province">
+                    </div>
+                    <div class="form-group">
+                        <label for="city">市</label>
+                        <input type="text" id="city" name="city">
+                    </div>
+                    <div class="form-group">
+                        <label for="political_status">政治面貌</label>
+                        <select id="political_status" name="political_status">
+                            <option value="">请选择</option>
+                            <option value="群众">群众</option>
+                            <option value="团员">团员</option>
+                            <option value="党员">党员</option>
+                            <option value="其他">其他</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="phone">电话</label>
+                        <input type="tel" id="phone" name="phone" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">电子邮箱</label>
+                        <input type="email" id="email" name="email">
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="id_number">身份证号</label>
+                        <input type="text" id="id_number" name="id_number" required>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="home_address">家庭地址</label>
+                        <textarea id="home_address" name="home_address" rows="2"></textarea>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 教育背景 -->
+            <div class="form-section">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="current_school">就读学校</label>
+                        <input type="text" id="current_school" name="current_school">
+                    </div>
+                    <div class="form-group">
+                        <label for="graduation_time">毕业时间</label>
+                        <input type="date" id="graduation_time" name="graduation_time">
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="education_level">学历</label>
+                        <div class="checkbox-group">
+                            <div class="checkbox-item">
+                                <input type="radio" id="high_school" name="education_level" value="普通高中">
+                                <label for="high_school">普通高中</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="radio" id="international_high" name="education_level" value="国际高中">
+                                <label for="international_high">国际高中</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="radio" id="middle_school" name="education_level" value="中专">
+                                <label for="middle_school">中专</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="radio" id="vocational" name="education_level" value="职高">
+                                <label for="vocational">职高</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="radio" id="other_edu" name="education_level" value="其他">
+                                <label for="other_edu">其他</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="diploma">是否有毕业证</label>
+                        <select id="diploma" name="diploma">
+                            <option value="">请选择</option>
+                            <option value="是">是</option>
+                            <option value="否">否</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="gaokao_score">高考成绩</label>
+                        <input type="text" id="gaokao_score" name="gaokao_score">
+                    </div>
+                    <div class="form-group">
+                        <label for="english_score">英语成绩</label>
+                        <input type="text" id="english_score" name="english_score">
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="target_country">意向国家</label>
+                        <input type="text" id="target_country" name="target_country">
+                    </div>
+                    <div class="form-group">
+                        <label for="target_major">意向专业</label>
+                        <input type="text" id="target_major" name="target_major">
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 家庭联系人 -->
+            <div class="form-section">
+                <div class="section-title">家庭联系人</div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="father_name">父亲姓名</label>
+                        <input type="text" id="father_name" name="father_name">
+                    </div>
+                    <div class="form-group">
+                        <label for="father_phone">联系电话</label>
+                        <input type="tel" id="father_phone" name="father_phone">
+                    </div>
+                    <div class="form-group">
+                        <label for="mother_name">母亲姓名</label>
+                        <input type="text" id="mother_name" name="mother_name">
+                    </div>
+                    <div class="form-group">
+                        <label for="mother_phone">联系电话</label>
+                        <input type="tel" id="mother_phone" name="mother_phone">
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="emergency_contact">其他联系电话</label>
+                        <input type="tel" id="emergency_contact" name="emergency_contact">
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 其他信息 -->
+            <div class="form-section">
+                <div class="section-title">其他信息</div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="medical_history">如有过敏史或者过往病史，请注明分数</label>
+                        <textarea id="medical_history" name="medical_history" rows="3"></textarea>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="special_note">特别声明</label>
+                        <textarea id="special_note" name="special_note" rows="4" placeholder="本人郑重声明：本申请表及附属文件的一切信息，均属真实，并无遗漏。如有虚假，后果自负。如本人注册入学成功后，将严格遵守学校各项管理制度。"></textarea>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="applicant_signature">申请人签名</label>
+                        <input type="text" id="applicant_signature" name="applicant_signature">
+                    </div>
+                    <div class="form-group">
+                        <label for="application_date">日期</label>
+                        <input type="date" id="application_date" name="application_date">
+                    </div>
+                </div>
+            </div>
+            
+            <button type="submit" class="submit-btn">提交报名申请</button>
+        </form>
+    </div>
+    
+    <script>
+        document.getElementById('registerForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // 收集表单数据
+            const formData = new FormData(this);
+            
+            // 收集多选项目
+            const projects = [];
+            document.querySelectorAll('input[name="projects"]:checked').forEach(checkbox => {
+                projects.push(checkbox.value);
+            });
+            formData.set('projects', projects.join(', '));
+            
+            // 发送数据到后端
+            fetch('/submit-registration', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    showCenterMessage('报名申请提交成功！我们会尽快与您联系。', 'success');
+                    this.reset();
+                } else {
+                    showCenterMessage('提交失败，请重试：' + data.message, 'error');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                showCenterMessage('网络错误，请稍后重试。', 'error');
+            });
+        });
+        
+        // 自动填充当前日期
+        document.getElementById('application_date').value = new Date().toISOString().split('T')[0];
+        
+        // 显示中央消息提示
+        function showCenterMessage(message, type) {
+            // 找到表单容器
+            const formContainer = document.querySelector('.register-container');
+            if (!formContainer) {
+                // 如果找不到表单容器，使用原来的中央显示方式
+                showFallbackMessage(message, type);
+                return;
+            }
+            
+            // 移除已存在的提示
+            const existingToast = formContainer.querySelector('.form-toast');
+            if (existingToast) {
+                existingToast.remove();
+            }
+            
+            // 创建消息提示框
+            const toast = document.createElement('div');
+            toast.className = 'form-toast';
+            toast.style.cssText = `
+                position: relative;
+                background: ${type === 'success' ? '#f0f9ff' : '#fef2f2'};
+                border: 2px solid ${type === 'success' ? '#10b981' : '#ef4444'};
+                border-radius: 8px;
+                padding: 16px 20px;
+                margin-bottom: 20px;
+                display: flex;
+                align-items: center;
+                gap: 12px;
+                animation: slideDown 0.3s ease;
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            `;
+            
+            // 创建图标
+            const icon = document.createElement('div');
+            icon.style.cssText = `
+                font-size: 20px;
+                color: ${type === 'success' ? '#10b981' : '#ef4444'};
+                font-weight: bold;
+            `;
+            icon.textContent = type === 'success' ? '✓' : '✗';
+            
+            // 创建消息文本
+            const messageText = document.createElement('div');
+            messageText.style.cssText = `
+                flex: 1;
+                font-size: 14px;
+                color: ${type === 'success' ? '#065f46' : '#991b1b'};
+                line-height: 1.4;
+            `;
+            messageText.textContent = message;
+            
+            // 创建关闭按钮
+            const closeButton = document.createElement('button');
+            closeButton.style.cssText = `
+                background: none;
+                border: none;
+                color: ${type === 'success' ? '#10b981' : '#ef4444'};
+                font-size: 18px;
+                cursor: pointer;
+                padding: 0;
+                width: 20px;
+                height: 20px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            `;
+            closeButton.innerHTML = '×';
+            closeButton.onclick = () => {
+                toast.style.animation = 'slideUp 0.3s ease';
+                setTimeout(() => {
+                    if (toast.parentNode) {
+                        toast.parentNode.removeChild(toast);
+                    }
+                }, 300);
+            };
+            
+            // 组装提示框
+            toast.appendChild(icon);
+            toast.appendChild(messageText);
+            toast.appendChild(closeButton);
+            
+            // 添加到表单容器顶部
+            formContainer.insertBefore(toast, formContainer.firstChild);
+            
+            // 自动消失
+            setTimeout(() => {
+                if (toast.parentNode) {
+                    toast.style.animation = 'slideUp 0.3s ease';
+                    setTimeout(() => {
+                        if (toast.parentNode) {
+                            toast.parentNode.removeChild(toast);
+                        }
+                    }, 300);
+                }
+            }, 5000);
+        }
+        
+        function showFallbackMessage(message, type) {
+            // 创建遮罩层
+            const overlay = document.createElement('div');
+            overlay.style.cssText = `
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(0, 0, 0, 0.5);
+                z-index: 10000;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                animation: fadeIn 0.3s ease;
+            `;
+            
+            // 创建消息框
+            const messageBox = document.createElement('div');
+            messageBox.style.cssText = `
+                background: white;
+                padding: 40px 60px;
+                border-radius: 12px;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+                text-align: center;
+                max-width: 500px;
+                animation: slideUp 0.3s ease;
+            `;
+            
+            // 创建图标
+            const icon = document.createElement('div');
+            icon.style.cssText = `
+                font-size: 48px;
+                margin-bottom: 20px;
+                ${type === 'success' ? 'color: #10b981;' : 'color: #ef4444;'}
+            `;
+            icon.textContent = type === 'success' ? '✓' : '✗';
+            
+            // 创建消息文本
+            const messageText = document.createElement('div');
+            messageText.style.cssText = `
+                font-size: 18px;
+                color: #333;
+                margin-bottom: 30px;
+                line-height: 1.5;
+            `;
+            messageText.textContent = message;
+            
+            // 创建确定按钮
+            const okButton = document.createElement('button');
+            okButton.style.cssText = `
+                background: ${type === 'success' ? '#10b981' : '#ef4444'};
+                color: white;
+                border: none;
+                padding: 12px 30px;
+                border-radius: 6px;
+                font-size: 16px;
+                cursor: pointer;
+                transition: all 0.3s ease;
+            `;
+            okButton.textContent = '确定';
+            okButton.onclick = () => {
+                overlay.style.animation = 'fadeOut 0.3s ease';
+                setTimeout(() => {
+                    if (overlay.parentNode) {
+                        overlay.parentNode.removeChild(overlay);
+                    }
+                }, 300);
+            };
+            
+            // 组装消息框
+            messageBox.appendChild(icon);
+            messageBox.appendChild(messageText);
+            messageBox.appendChild(okButton);
+            overlay.appendChild(messageBox);
+            
+            // 添加动画样式
+            if (!document.querySelector('#centerMessageStyles')) {
+                const style = document.createElement('style');
+                style.id = 'centerMessageStyles';
+                style.textContent = `
+                    @keyframes fadeIn {
+                        from { opacity: 0; }
+                        to { opacity: 1; }
+                    }
+                    @keyframes fadeOut {
+                        from { opacity: 1; }
+                        to { opacity: 0; }
+                    }
+                    @keyframes slideUp {
+                        from { transform: translateY(30px); opacity: 0; }
+                        to { transform: translateY(0); opacity: 1; }
+                    }
+                `;
+                document.head.appendChild(style);
+            }
+            
+            // 添加到页面
+            document.body.appendChild(overlay);
+        }
+    </script>
+</body>
+</html>
